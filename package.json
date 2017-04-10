@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/pgswinter/mywebpack/issues"
   },
-  "homepage": "https://github.com/pgswinter/mywebpack#readme"
+  "homepage": "https://github.com/pgswinter/mywebpack#readme",
+  "devDependencies": {
+    "webpack": "^2.3.3"
+  }
 }
