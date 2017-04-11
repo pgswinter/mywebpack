@@ -1,11 +1,13 @@
 const path = require('path');
 const webpack = require('webpack');
 const prod = process.argv.indexOf('-p') !== -1;
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+// const ExtractTextPlugin = require('extract-text-webpack-plugin');
+var HTMLWebpackPlugin = require('html-webpack-plugin')
 
 var setPlugin = []
 var entry
-var cssLoader
+var cssIdentifier
+// var cssLoader = []
 
 const config = {
   devtool: 'source-map',
@@ -24,7 +26,8 @@ const config = {
       },
       {
         test: /\.css$/,
-        loaders: cssLoader,
+        // loaders: cssLoader,
+        loaders: ['style-loader','css-loader?localIdentName=[path][name]---[local]'],
         exclude: '/node_modules/'
       }
       ]
@@ -59,12 +62,25 @@ var DEVELOPMENT = process.env.NODE_ENV === 'development';
 var PRODUCTION = process.env.NODE_ENV === 'production';
 
 if (PRODUCTION) {
-  setPlugin = [new webpack.optimize.UglifyJsPlugin()];
-  config.entry =  ['./src/index.js']
-  var cssIdentifier =  '[hash:base64:10]';
-  cssLoader = ExtractTextPlugin.extract({
-    loader: 'css-loader?localIdentName='+cssIdentifier
+  setPlugin = [new webpack.optimize.UglifyJsPlugin({
+
+  	// comments: true,
+  	// mangle: false,
+  	// compress: {
+  	// 	warnings: true
+  	// }
+
+  }),
+  // new ExtractTextPlugin('style.css')
+  new HTMLWebpackPlugin({
+  	template: 'index-template.html'
   })
+  ];
+  config.entry =  ['./src/index.js']
+  // cssIdentifier =  '[hash:base64:10]';
+  // cssLoader = ExtractTextPlugin.extract({
+  //   loader: 'css-loader?localIdentName='+cssIdentifier
+  // })
 } else {
   setPlugin = [new webpack.HotModuleReplacementPlugin()];
   config.entry = [
@@ -72,8 +88,8 @@ if (PRODUCTION) {
       'webpack/hot/dev-server',
       'webpack-dev-server/client?http://localhost:8080'
     ];
-  var cssIdentifier =  '[path][name]---[local]';
-  cssLoader = ['style-loader','css-loader?localIdentName=' + cssIdentifier];
+  // cssIdentifier =  '[path][name]---[local]';
+  // cssLoader = ['style-loader','css-loader?localIdentName=' + cssIdentifier];
 }
 
 module.exports = config
