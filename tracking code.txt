@@ -1,0 +1,5 @@
+// Normal way to reload bundle and browser
+"build": "rimraf bundle.js && webpack --watch",
+// Using hot/live reload
+"build": "webpack-dev-server",
+// Using HMR(Hot Module Replacement)
