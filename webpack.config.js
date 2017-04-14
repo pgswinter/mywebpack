@@ -29,6 +29,11 @@ const config = {
         // loaders: cssLoader,
         loaders: ['style-loader','css-loader?localIdentName=[path][name]---[local]'],
         exclude: '/node_modules/'
+      },
+      {
+        test: /\.jsx$/,
+        loaders: ['babel'],
+        exclude: '/node_modules/'
       }
       ]
   },
@@ -72,22 +77,30 @@ if (PRODUCTION) {
 
   }),
   // new ExtractTextPlugin('style.css')
-  new HTMLWebpackPlugin({
-  	template: 'index-template.html'
-  })
+  // new HTMLWebpackPlugin({
+  // 	template: 'index-template.html'
+  // })
   ];
-  config.entry =  ['./src/index.js']
+  // config.entry =  ['./src/index.js']
+  config.entry =  ['./app/app.js']
+
   // cssIdentifier =  '[hash:base64:10]';
   // cssLoader = ExtractTextPlugin.extract({
   //   loader: 'css-loader?localIdentName='+cssIdentifier
   // })
 } else {
   setPlugin = [new webpack.HotModuleReplacementPlugin()];
+  // config.entry = [
+  //     './src/index.js',
+  //     'webpack/hot/dev-server',
+  //     'webpack-dev-server/client?http://localhost:8080'
+  //   ];
   config.entry = [
-      './src/index.js',
+      './app/app.js',
       'webpack/hot/dev-server',
       'webpack-dev-server/client?http://localhost:8080'
     ];
+
   // cssIdentifier =  '[path][name]---[local]';
   // cssLoader = ['style-loader','css-loader?localIdentName=' + cssIdentifier];
 }
