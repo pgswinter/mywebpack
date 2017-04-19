@@ -25,11 +25,27 @@ module.exports = {
 				"text":"Where would you like it delivered?",
 				"time": new Date(2016,4,5,15,11,0,0)
 				
-			}
+			},
+			{
+				"who": "human",
+				"text": "123 Sesame Street, Montreal, Canada",
+				"time": new Date(2016, 4, 5, 15, 11, 30, 0)
+	        },
 				
 
+			],
+			"orders": [
+				{
+					"time": new Date(2016, 4, 5, 15, 11, 45, 0),
+					"pizzas": [{
+						"toppings": ["Meat-Lovers"],
+						"size": "S"
+					}],
+					"price": 15,
+					"address": "321 Sesame Street, Montreal, Canada",
+					"status": "Confirmed" // status := Open -> Confirmed -> In The Oven -> Delivered
+				}
 			]
-
 		},
 		"Jeremy Foster": {
 
@@ -54,9 +70,24 @@ module.exports = {
 				"text":"Where would you like it delivered?",
 				"time": new Date(2016,4,5,15,11,0,0)
 				
+			},
+			{
+				"who": "human",
+				"text": "123 Sesame Street, Montreal, Canada",
+				"time": new Date(2016, 4, 4, 20, 30, 45, 0)
+			},
+			],
+			"orders": [
+			{
+				"time": new Date(2016, 4, 4, 20, 31, 0, 0),
+				"pizzas": [{
+					"toppings": ["cheese"],
+					"size": "XL"
+				}],
+				"price": 15,
+				"address": "123 Sesame Street, Montreal, Canada",
+				"status": "Delivered" // status := Open -> Confirmed -> In The Oven -> Delivered
 			}
-				
-
 			]
 
 		}

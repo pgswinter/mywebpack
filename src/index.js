@@ -1,4 +1,5 @@
-var style = require('./style/style.css');
+require('./style/style.sass');
+var style = require('./style/style.sass');
 
 var messages = require('./message')
 
@@ -21,7 +22,7 @@ var app = document.getElementById('app')
 
 app.innerHTML = newMessage()
 
-Button.attachEl();
+// Button.attachEl();
 
 if(module.hot){
 	module.hot.accept();

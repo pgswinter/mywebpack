@@ -2,12 +2,14 @@
 	margin: 0;
 	padding: 0;
 }
-html{
+#inbox-pane{
 	
 	background-color: lightblue;
 
 }
-
+#conversation-pane{
+	background-color: lightpink;
+}
 :local(.box){
 
 	background-color: white;

@@ -1,10 +1,12 @@
 import $ from 'jquery';
+import 'bootstrap/dist/js/bootstrap';
+
+require('../src/style/style.sass');
+
 var React = require('react');
 var ReactDOM = require('react-dom');
 
 var samples = require('./sample-data');
-
-$('#app').css('background-color','lightblue')
 
 var App = React.createClass({
 
@@ -24,8 +26,11 @@ var App = React.createClass({
 				<div id="header"></div>
 				<button onClick={this.loadSampleData}>Load Sample Data</button>
 				<div className="container">
-					<div className="column">
+					<div className="column col-lg-4">
 						<InboxPane humans={this.state.humans}/>
+					</div>
+					<div className="column col-lg-4">
+						<ConversationPane conversation={this.state.selectedConversation} />
 					</div>
 				</div>
 			</div>
@@ -63,15 +68,46 @@ var InboxPane = React.createClass({
 })
 
 var InboxItem = React.createClass({
+	sortByDate: function(a,b){
+		return a.time>b.time ? -1 : a.time<b.time ? 1 : 0;
+	},
+	messageSummary: function(conversations){
+		var lastMessage = conversations.sort(this.sortByDate)[0];
+		return lastMessage.who + ' said: "' + lastMessage.text + '" @ '+ lastMessage.time.toDateString();
+	},
 	render: function(){
 		return(
 			<tr>
-				<td>5pm</td>
+				<td>{this.messageSummary(this.props.details.conversations)}</td>
 				<td>{this.props.index}</td>
-				<td>Order Sent</td>
+				<td>{this.props.details.orders.sort(this.sortByDate)[0].status}</td>
 			</tr>
 		)
 	}
+})
+
+var ConversationPane = React.createClass({
+  renderMessage: function(val){
+    return <Message who="{val.who}" text={val.text} key={val.time.getTime()} />
+  },
+  render: function(){
+    return (
+      <div id="conversation-pane">
+        <h1>Conversation</h1>
+        <h3>Select a conversation from the inbox</h3>
+        <div id="messages">
+          
+        </div>
+      </div>
+    )
+  }
+
+})
+
+var Message = React.createClass({
+  render: function(){
+    return <p>{this.props.who} said: "{this.props.text}"</p>;
+  }
 })
 
 ReactDOM.render(<App />, document.getElementById('app'))
