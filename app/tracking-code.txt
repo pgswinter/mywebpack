@@ -1,0 +1,60 @@
+// Call value from data *******************************************************************************************************
+// Inbox Item
+<td>{this.messageSummary(this.props.details.conversations)}</td>
+<td>{this.props.index}</td>
+<td>{this.props.details.orders.sort(this.sortByDate)[0].status}</td>
+-->
+// Inbox Pane
+return <InboxItem key={human} index={human} details={this.props.humans[human]} />;
+{Object.keys(this.props.humans).map(this.renderInboxItem)}
+-->
+// App
+<InboxPane humans={this.state.humans}/>
+//  **************************************************************************************************************************
+
+
+
+
+// Get detail value of data *******************************************************************************************************
+// Message
+return <p>{this.props.who} said: "{this.props.text}"</p>;
+-->
+// ConversationPane
+return <Message who={val.who} text={val.text} key={val.time.getTime()} />
+{this.props.conversations.map(this.renderMessage)}
+-->
+// App
+<ConversationPane conversations={this.state.selectedConversation} />
+//  **************************************************************************************************************************
+
+
+
+
+// Create link to detail *******************************************************************************************************
+// App
+getInitialState: function(){
+	return {
+		"selectedConversation": []
+	};
+},
+setSelectedConversation:function(human_index){
+	this.setState({
+		selectedConversation: this.state.humans[human_index].conversations
+	})
+},
+render: function(){
+	return(
+		<InboxPane setSelectedConversation={this.setSelectedConversation}/>
+	)
+	
+}
+// Inbox Pane
+renderInboxItem: function(human){
+	return <InboxItem setSelectedConversation={this.props.setSelectedConversation}/>;
+},
+//  **************************************************************************************************************************
+
+// Declare 3 options for each value
+- key
+- index
+- details

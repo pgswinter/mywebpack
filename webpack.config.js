@@ -4,7 +4,14 @@ const prod = process.argv.indexOf('-p') !== -1;
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 // var HTMLWebpackPlugin = require('html-webpack-plugin')
 
-var setPlugin = [new ExtractTextPlugin('style.css')]
+var setPlugin = [
+  new ExtractTextPlugin('style.css'),
+  new webpack.ProvidePlugin({   
+      jQuery: 'jquery',
+      $: 'jquery',
+      jquery: 'jquery'
+  })
+  ]
 var entry
 var cssIdentifier
 var cssLoaderDEV 
@@ -88,8 +95,7 @@ if (PRODUCTION) {
   	// 	warnings: true
   	// }
 
-  }),
-  new ExtractTextPlugin('style.css')
+  })
   // new HTMLWebpackPlugin({
   // 	template: 'index-template.html'
   // })
@@ -103,7 +109,7 @@ if (PRODUCTION) {
   // })
   // cssLoaderPROD = ExtractTextPlugin.extract({fallback: 'style-loader',use: 'css-loader'})
 } else {
-  setPlugin = [new webpack.HotModuleReplacementPlugin(),new ExtractTextPlugin('style.css')];
+  setPlugin = [new webpack.HotModuleReplacementPlugin()];
   // config.entry = [
   //     './src/index.js',
   //     'webpack/hot/dev-server',
