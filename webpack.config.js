@@ -41,9 +41,9 @@ const config = {
                 fallback: 'style-loader',
                 use: [{
                     loader: "css-loader",
-                    options: {
-                      minimize: true || {}
-                    }
+                    // options: {
+                    //   minimize: true || {}
+                    // }
                 }, {
                     loader: "sass-loader"
                 }]
@@ -53,6 +53,11 @@ const config = {
       {
         test: /\.jsx$/,
         loaders: ['babel'],
+        exclude: '/node_modules/'
+      },
+     {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file-loader?name=public/fonts/[name].[ext]',
         exclude: '/node_modules/'
       }
       ]
@@ -101,7 +106,7 @@ if (PRODUCTION) {
   // })
   ];
   // config.entry =  ['./src/index.js']
-  config.entry =  ['./app/app.js']
+  config.entry =  ['./career/index.js']
 
   // cssIdentifier =  '[hash:base64:10]';
   // cssLoaderPROD = ExtractTextPlugin.extract({
@@ -116,7 +121,7 @@ if (PRODUCTION) {
   //     'webpack-dev-server/client?http://localhost:8080'
   //   ];
   config.entry = [
-      './app/app.js',
+      './career/index.js',
       'webpack/hot/dev-server',
       'webpack-dev-server/client?http://localhost:8080'
     ];
