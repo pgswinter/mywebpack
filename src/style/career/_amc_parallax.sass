@@ -1,0 +1,68 @@
+@import map-get
+@import common
++exports("amc_parallax")
+	.red-test
+		position: fixed
+		width: 50px
+		height: 50px
+		border-radius: 50%
+		left: 10px
+		top: 10px
+		background-color: black
+	.amc-parallax
+		background-color: #fff
+		div[class^="para"],
+		div[class*="para"]
+			height: 70vh
+			position: relative
+			&.heigher
+				height: 100vh
+			div[class^="anim-"],
+			div[class*="anim-"]
+				opacity: 0.8
+				transition: all 1200ms	ease
+				-webkit-transition: all 1200ms	ease
+				-moz-transition: all 1200ms ease
+				-ms-transition: all 1200ms	ease
+			.full-lay
+				width: 100%
+				position: absolute
+				left: 120px
+				bottom: -10px
+			.half-lay
+				width: 41%
+				position: absolute
+				&.left
+					left: 120px
+					&.cent-wrap
+						@extend .set-cent-vert
+					&.text-wrap
+						top: 0
+				&.right
+					right: 120px
+					&.cent-wrap
+						@extend .set-cent-vert
+					&.text-wrap
+						top: 0
+				.img-wrap
+					width: 100%
+					img
+						width: 100%
+				hr
+					width: 90%
+					border: 3px solid #000
+					margin: 3.5em 0
+					height: 0
+					&:first-child
+						margin-top: 0
+				p
+					font-size: 10pt
+					line-height: 21px
+			article
+				width: 90%
+				padding-left: 10px
+				padding-right: 10px
+				white-space: pre-line
+				line-height: 0
+				h2
+					margin-top: 0

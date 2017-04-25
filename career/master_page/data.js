@@ -1,7 +1,4 @@
 module.exports = {
-	"test":{
-		"value_here":"hey ya"
-	},
 	"master_page":{
 		"header":{
 			"top_head":
@@ -30,13 +27,20 @@ module.exports = {
 			"item6":"our locations",
 			"item7":"press and news",
 			"item8":"careers",
-			"item9":"foundation"
+			"item9":"foundation",
+			"item10":"english",
+			"item11":"french",
+			"item12":"Contact",
+			"item13":"Apply"
 		},
 		"social_menu":{
-			"social1":"facebook",
-			"social2":"twitter",
-			"social3":"linkedin",
-			"social4":"google plus"
+			"social1":"imgs/linkedin.png",
+			"social2":"imgs/facebook.png",
+			"social3":"imgs/twitter.png",
+			"social4":"imgs/xing.png",
+			"social5":"imgs/google.png",
+			"social6":"imgs/orange.png",
+			"social7":"imgs/youtube.png"
 		},
 		"body_content":{
 
@@ -51,5 +55,5 @@ module.exports = {
 			}
 		}
 	}
-
+	
 }

@@ -41,9 +41,9 @@ const config = {
                 fallback: 'style-loader',
                 use: [{
                     loader: "css-loader",
-                    // options: {
-                    //   minimize: true || {}
-                    // }
+                    options: {
+                      minimize: true || {}
+                    }
                 }, {
                     loader: "sass-loader"
                 }]
