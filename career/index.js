@@ -4,23 +4,41 @@ require('../src/style/career/bundle.sass');
 
 require('../public/fonts/segoeui/font.sass');
 require('../public/fonts/segoeuib/font.sass');
+require('../public/fonts/museo/font.sass');
 
 var React = require('react');
 var ReactDOM = require('react-dom');
-
-import Logo from '../src/career/img';
+// import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 
 const master_data = require('../career/master_page/data');
 
 var formatDate = function(date) {
   return date.toLocaleDateString();
 }
+
+// class MasterPage extends React.Component{
+// 	render(){
+
+// 		return (
+// 			<div>
+// 				<MenuLeft master_page={master_data.master_page}/>
+// 				<Header master_page={master_data.master_page}/>
+// 				{this.props.children}
+// 				<Footer master_page={master_data.master_page}/>
+// 			</div>
+// 		)
+
+// 	}
+	
+// }
+
 var MasterPage = function(props){
 
 	return (
 		<div>
 			<MenuLeft master_page={master_data.master_page}/>
 			<Header master_page={master_data.master_page}/>
+			<BodyContent/>
 			<Footer master_page={master_data.master_page}/>
 		</div>
 	)
@@ -30,9 +48,9 @@ var MasterPage = function(props){
 var MenuLeft = function(props){
 	return(
 		<div className="menu-left">
-			<a className="menu-btn indx-gene acti-hove">
-				<i className="f{props.master_page.header.top_head.text1}" aria-hidden="true"></i>
-				<i className="{props.master_page.header.top_head.text2} hide-element" aria-hidden="true"></i>
+			<a className="menu-btn indx-gene acti-hove for-lapt-and-desk">
+				<i className="fa fa-bars" aria-hidden="true"></i>
+				<i className="fa fa-close hide-element" aria-hidden="true"></i>
 				<span className="welc-symb for-desk-and-tabl" for="">{props.master_page.header.top_head.text5}</span>
 				<span className="menu-symb hide-element" for="">{props.master_page.header.top_head.text7}</span>
 			</a>
@@ -92,7 +110,7 @@ var Header = function(props){
 							<div className="row">
 						
 								<a href="" className="defa-logo minimize">
-									${Logo}
+									<img src={require (`../src/career/images/logo.png`)} />
 								</a>
 								
 							</div>
@@ -109,37 +127,47 @@ var Header = function(props){
 					</div>
 
 				</div>
+				<div className="sect-amar abou-us main-nav vert-menu vert-anim amar-nav">
+					<ul>
+
+						<li>
+							<a href="">
+								<span for="">{props.master_page.header.navigate.nav1}</span>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<span for="">{props.master_page.header.navigate.nav2}</span>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<span for="">{props.master_page.header.navigate.nav3}</span>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<span for="">{props.master_page.header.navigate.nav4}</span>
+							</a>
+						</li>
+					</ul>
+					<div className="clear"></div>
+				</div>
 
 			</header>
-			<div className="sect-amar acti-hove icon-menu vert-anim amar-nav">
-				<ul>
-
-					<li>
-						<a href="">
-							<label for="">{props.master_page.header.navigate.nav1}</label>
-						</a>
-					</li>
-					<li>
-						<a href="">
-							<label for="">{props.master_page.header.navigate.nav2}</label>
-						</a>
-					</li>
-					<li>
-						<a href="">
-							<label for="">{props.master_page.header.navigate.nav3}</label>
-						</a>
-					</li>
-					<li>
-						<a href="">
-							<label for="">{props.master_page.header.navigate.nav4}</label>
-						</a>
-					</li>
-				</ul>
-				<div className="clear"></div>
-			</div>
+			
 		</div>
 	)
 }
+
+var BodyContent = function(props){
+
+	return (
+		<HomePage home_page={master_data.home_page}/>
+	)
+
+}
+
 
 var Footer = function(props){
 	return (
@@ -159,13 +187,13 @@ var Footer = function(props){
 							
 							<h4>Follow us</h4>
 							<ul>
-								<li><a href=""><img src="{props.master_page.social_menu.social1}" alt="" /></a></li>
-								<li><a href=""><img src="{props.master_page.social_menu.social2}" alt="" /></a></li>
-								<li><a href=""><img src="{props.master_page.social_menu.social3}" alt="" /></a></li>
-								<li><a href=""><img src="{props.master_page.social_menu.social4}" alt="" /></a></li>
-								<li><a href=""><img src="{props.master_page.social_menu.social5}" alt="" /></a></li>
-								<li><a href=""><img src="{props.master_page.social_menu.social6}" alt="" /></a></li>
-								<li><a href=""><img src="{props.master_page.social_menu.social7}" alt="" /></a></li>
+								<li><a href=""><img src={require(`../src/career/images/facebook.png`)} alt="" /></a></li>
+								<li><a href=""><img src={require(`../src/career/images/google.png`)} alt="" /></a></li>
+								<li><a href=""><img src={require(`../src/career/images/linkedin.png`)} alt="" /></a></li>
+								<li><a href=""><img src={require(`../src/career/images/twitter.png`)} alt="" /></a></li>
+								<li><a href=""><img src={require(`../src/career/images/xing.png`)} alt="" /></a></li>
+								<li><a href=""><img src={require(`../src/career/images/youtube.png`)} alt="" /></a></li>
+								<li><a href=""><img src={require(`../src/career/images/orange.png`)} alt="" /></a></li>
 							</ul>
 
 						</div>
@@ -178,7 +206,197 @@ var Footer = function(props){
 	)
 }
 
+
+var HomePage = function(props){
+
+	return(
+		<div className="body-content home-page">
+			
+			<section className="helo-amar mobi-oran">
+
+				<div className="img-wrap-cent">
+					<img src={require(`../src/career/photos/wall.jpg`)} alt="" />
+				</div>
+
+			</section>
+			<section className="prom-amar set-bg-dark">
+			
+				<div className="container">
+					<h4>{props.home_page.promotion.text_prom}</h4>
+				</div>
+
+			</section>
+			<section className="perc-amar set-bg-oran">
+			
+				<div className="container">
+					<div className="titl2">
+						<h3 className="set-bord-righ">The NUMBER</h3>
+					</div>
+					
+					<div className="incr-numb">
+						
+						<div className="col-lg-3 col-md-3 col-sm-3 bord-hove transition-effect">
+							
+							<p className="counter">2650</p>
+							<h4>{props.home_page.number.text1}</h4>
+							<img src={require(`../src/career/images/empl.png`)} alt="" />
+
+						</div>
+						<div className="col-lg-3 col-md-3 col-sm-3 bord-hove transition-effect">
+							
+							<p className="counter">75</p>
+							<h4>{props.home_page.number.text2}</h4>
+							<img src={require(`../src/career/images/coff.png`)} alt="" />
+							
+						</div>
+						<div className="col-lg-3 col-md-3 col-sm-3 bord-hove transition-effect">
+							
+							<p className="counter">65</p>
+							<h4>{props.home_page.number.text3}</h4>
+							<img src={require(`../src/career/images/offi.png`)} alt="" />
+
+						</div>
+						<div className="col-lg-3 col-md-3 col-sm-3 bord-hove transition-effect">
+							
+							<p className="counter">1</p>
+							<h4>{props.home_page.number.text4}</h4>
+							<img src={require(`../src/career/images/earth.png`)} alt="" />
+
+						</div>
+					
+					</div>
+				</div>
+
+			</section>
+			<section className="map-amar set-bg-white">
+				<div className="container">
+					<div className="titl-bold">
+						<h3>Our Locations</h3>
+					</div>
+					<div className="img-wrap">
+						<a href="" title="Discover all our locations!"></a>
+						<a href=""><img title="Amaris map" alt="Amaris map" src={require(`../src/career/images/map.png`)} /></a>
+					</div>
+				</div>
+			</section>	
+		</div>
+	)
+
+}
+// class HomePage extends React.Component{
+// 	render(){
+
+// 		return(
+// 			<div className="body-content home-page">
+				
+// 				<section className="helo-amar mobi-oran">
+
+// 					<div className="img-wrap-cent">
+// 						<img src={require(`../src/career/photos/wall.jpg`)} alt="" />
+// 					</div>
+
+// 				</section>
+// 				<section className="prom-amar set-bg-dark">
+				
+// 					<div className="container">
+// 						<h4>{props.home_page.promotion.text_prom}</h4>
+// 					</div>
+
+// 				</section>
+// 				<section className="perc-amar set-bg-oran">
+				
+// 					<div className="container">
+// 						<div className="titl2">
+// 							<h3 className="set-bord-righ">The NUMBER</h3>
+// 						</div>
+						
+// 						<div className="incr-numb">
+							
+// 							<div className="col-lg-3 col-md-3 col-sm-3 bord-hove transition-effect">
+								
+// 								<p className="counter">2650</p>
+// 								<h4>{props.home_page.number.text1}</h4>
+// 								<img src={require(`../src/career/images/empl.png`)} alt="" />
+
+// 							</div>
+// 							<div className="col-lg-3 col-md-3 col-sm-3 bord-hove transition-effect">
+								
+// 								<p className="counter">75</p>
+// 								<h4>{props.home_page.number.text2}</h4>
+// 								<img src={require(`../src/career/images/coff.png`)} alt="" />
+								
+// 							</div>
+// 							<div className="col-lg-3 col-md-3 col-sm-3 bord-hove transition-effect">
+								
+// 								<p className="counter">65</p>
+// 								<h4>{props.home_page.number.text3}</h4>
+// 								<img src={require(`../src/career/images/offi.png`)} alt="" />
+
+// 							</div>
+// 							<div className="col-lg-3 col-md-3 col-sm-3 bord-hove transition-effect">
+								
+// 								<p className="counter">1</p>
+// 								<h4>{props.home_page.number.text4}</h4>
+// 								<img src={require(`../src/career/images/earth.png`)} alt="" />
+
+// 							</div>
+						
+// 						</div>
+// 					</div>
+
+// 				</section>
+// 				<section className="map-amar set-bg-white">
+// 					<div className="container">
+// 						<div className="titl-bold">
+// 							<h3>Our Locations</h3>
+// 						</div>
+// 						<div className="img-wrap">
+// 							<a href="" title="Discover all our locations!"></a>
+// 							<a href=""><img title="Amaris map" alt="Amaris map" src={require(`../src/career/images/map.png`)} /></a>
+// 						</div>
+// 					</div>
+// 				</section>	
+// 			</div>
+// 		)
+
+// 	}
+	
+
+// }
+// export default HomePage;
+
+var AboutUs = function(props){
+	return(
+		<div>
+			There is About Us
+		</div>
+	)
+}
+
+// class AboutUs extends React.Component{
+// 	render(){
+
+// 		return(
+// 			<div>
+// 				There is About Us
+// 			</div>
+// 		)
+// 	}
+// }
+
+// export default AboutUs;
+
 ReactDOM.render(<MasterPage />, document.getElementById('app'))
+
+// ReactDOM.render((
+// 	<Router history={browserHistory}>
+// 		<Route path="/" component={MasterPage}>
+// 			<IndexRoute component = {HomePage} />
+// 			<Route path = "home" component = {HomePage} />
+// 			<Route path = "about" component = {AboutUs} />
+// 		</Route>
+// 	</Router>
+// ), document.getElementById('app'))
 
 if(module.hot){
 	module.hot.accept();

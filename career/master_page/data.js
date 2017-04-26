@@ -33,15 +33,6 @@ module.exports = {
 			"item12":"Contact",
 			"item13":"Apply"
 		},
-		"social_menu":{
-			"social1":"imgs/linkedin.png",
-			"social2":"imgs/facebook.png",
-			"social3":"imgs/twitter.png",
-			"social4":"imgs/xing.png",
-			"social5":"imgs/google.png",
-			"social6":"imgs/orange.png",
-			"social7":"imgs/youtube.png"
-		},
 		"body_content":{
 
 		},
@@ -53,6 +44,22 @@ module.exports = {
 			"right_site":{
 				"text1":"Follow us"
 			}
+		}
+	},
+	"home_page":{
+		"article":{
+			"header":"There is header",
+			"body_article":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis quisquam ipsam minus. Sequi dolores nisi dolorum ipsam beatae quos voluptates.",
+			"button":"Read more"			
+		},
+		"promotion":{
+			"text_prom":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas placeat ipsa minus debitis eligendi sed laudantium, eos incidunt. Optio, eos."
+		},
+		"number":{
+			"text1":"employee",
+			"text2":"coffee",
+			"text3":"office",
+			"text4":"robert"
 		}
 	}
 	

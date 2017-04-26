@@ -55,7 +55,7 @@ const config = {
         loaders: ['babel'],
         exclude: '/node_modules/'
       },
-     {
+      {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
         loader: 'file-loader?name=public/fonts/[name].[ext]',
         exclude: '/node_modules/'
