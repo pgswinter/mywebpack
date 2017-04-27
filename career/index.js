@@ -8,7 +8,11 @@ require('../public/fonts/museo/font.sass');
 
 var React = require('react');
 var ReactDOM = require('react-dom');
-// import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
 
 const master_data = require('../career/master_page/data');
 

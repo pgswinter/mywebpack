@@ -106,7 +106,7 @@ if (PRODUCTION) {
   // })
   ];
   // config.entry =  ['./src/index.js']
-  config.entry =  ['./career/index.js']
+  config.entry =  ['./career/test2.js']
 
   // cssIdentifier =  '[hash:base64:10]';
   // cssLoaderPROD = ExtractTextPlugin.extract({
@@ -121,7 +121,7 @@ if (PRODUCTION) {
   //     'webpack-dev-server/client?http://localhost:8080'
   //   ];
   config.entry = [
-      './career/index.js',
+      './career/test2.js',
       'webpack/hot/dev-server',
       'webpack-dev-server/client?http://localhost:8080'
     ];
