@@ -15,7 +15,8 @@ module.exports = {
 				"nav1":"career homepage",
 				"nav2":"life@amaris",
 				"nav3":"job offers",
-				"nav4":"campus"
+				"nav4":"campus",
+				"nav5":"about"
 			}
 		},
 		"menu_left":{

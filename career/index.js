@@ -36,17 +36,19 @@ var formatDate = function(date) {
 	
 // }
 
-var MasterPage = function(props){
+class MasterPage extends React.Component {
+	render(){
 
-	return (
-		<div>
-			<MenuLeft master_page={master_data.master_page}/>
-			<Header master_page={master_data.master_page}/>
-			<BodyContent/>
-			<Footer master_page={master_data.master_page}/>
-		</div>
-	)
+		return (
+			<div>
+				<MenuLeft master_page={master_data.master_page}/>
+				<Header master_page={master_data.master_page}/>
+				<BodyContent/>
+				<Footer master_page={master_data.master_page}/>
+			</div>
+		)
 
+	}
 }
 
 var MenuLeft = function(props){
